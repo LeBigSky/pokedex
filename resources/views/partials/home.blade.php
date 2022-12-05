@@ -1,6 +1,7 @@
 <section>
     <div class="container">
         <a href="{{ route('monster.create') }}" class="btn btn-primary text-white my-5">Creer un Pocket Monster</a>
+        <a href="{{ route('type.create') }}" class="btn btn-warning text-white my-5">Creer un Type</a>
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light">
               <tr>
@@ -15,7 +16,7 @@
                     <td>
                       <div class="d-flex align-items-center">
                         <img
-                            src="{{ asset('storage/'.$monster->image->src) }}"
+                            src="{{ asset('storage/'.$monster->image) }}"
                             alt=""
                             style="width: 45px; height: 45px"
                             class="rounded-circle"

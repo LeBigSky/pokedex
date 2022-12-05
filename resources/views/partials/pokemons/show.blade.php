@@ -1,11 +1,12 @@
 <section>
-    <div class="container d-flex justify-content-center">
+ <div class="container">
+  <a href="{{ route('home') }}" class="btn btn-info text-white my-5">Retour</a>
+ </div>
+    <div class="container d-flex justify-content-center mt-5">
         <div class="card" style="background: linear-gradient(180deg, rgb(228, 174, 48) 23%, rgba(249, 229, 3, 0.584) 95%);">
           <div class="border rounded m-3">
             <img src="{{ asset('storage/'.$monster->image->src) }}"  class="card-img-top" alt="" style="width:350px;"/>
           </div>
-            
-   
             <div class="card-body style" >
               <h2 class="card-title text-center border rounded" style="font-weight: bold; background-color: white" > {{ $monster->nom }}</h2>
               <div class="border rounded p-2 my-1" style="background-color: white">

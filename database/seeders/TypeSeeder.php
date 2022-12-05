@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TypeSeeder extends Seeder
 {
@@ -14,6 +15,16 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('types')->insert([
+            ['type'=> 'Electrique',
+            ],
+            ['type'=> 'Feu',
+            ],
+            ['type'=> 'Glace',
+            ],
+            ['type'=> 'Dinguerie',
+            ],
+          
+        ]);
     }
 }
