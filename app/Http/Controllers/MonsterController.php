@@ -60,7 +60,7 @@ class MonsterController extends Controller
      */
     public function show(Monster $monster)
     {
-        //
+        return view('pages.pokemons.show', compact('monster'));
     }
 
     /**
@@ -71,7 +71,8 @@ class MonsterController extends Controller
      */
     public function edit(Monster $monster)
     {
-        //
+        $types= Type::all();
+        return view('pages.pokemons.edit', compact('monster', 'types'));
     }
 
     /**
@@ -81,9 +82,25 @@ class MonsterController extends Controller
      * @param  \App\Models\Monster  $monster
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Monster $monster)
+    public function update(Request $request, Monster $monster, Image $image )
     {
-        //
+        if($request->src != null){
+        $image= Image::find( $monster->id);
+        Storage::delete('public/'.$monster->image->src);
+        $image->src = $request->file('src')->hashName();
+        Storage::put('public/', $request->file('src'));
+        
+        }
+        else{
+        $image->src = $image->src;    
+        }
+        $image->monster_id = $monster->id;
+        $image->save();
+        $monster->nom = $request->nom;
+        $monster->type_id= $request->type_id;
+        $monster->level= $request->level;
+        $monster->save();
+        return redirect()->route('home');
     }
 
     /**
@@ -94,6 +111,9 @@ class MonsterController extends Controller
      */
     public function destroy(Monster $monster)
     {
-        //
+        $image= Image::find($monster->id);
+        $image->delete();
+        $monster->delete();
+        return redirect()->route('home');
     }
 }
