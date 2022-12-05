@@ -17,13 +17,21 @@ class ImageSeeder extends Seeder
     {
         DB::table('images')->insert([
             ['src'=> 'img1.jpg',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             'monster_id'=> 1],
             ['src'=> 'img2.jpg',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
         'monster_id'=> 2],
             ['src'=> 'img3.jpg',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             'monster_id'=> 3],
-            ['src'=> 'img4.jpg',
-            'monster_id'=> 3],
+            ['src'=> 'img4.jpeg',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            'monster_id'=> 4],
         ]);
     }
 }

@@ -4,8 +4,8 @@
         <form action="/monster" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Email input -->
-            <div class="d-flex justify-content-between mt-5 p-2">
-                <div class="form-outline mb-4 w-50">
+            <div class="d-flex justify-content-between mt-5">
+                <div class="form-outline mb-4 w-50 p-2">
               <input type="text" name="nom" id="form1Example1" class="form-control" />
               <label class="form-label" for="form1Example1">Nom</label>
             </div>

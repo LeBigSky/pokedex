@@ -111,7 +111,9 @@ class MonsterController extends Controller
      */
     public function destroy(Monster $monster)
     {
-        Storage::delete('public/'.$monster->image->src);
+        if($monster->id > 4){
+         Storage::delete('public/'.$monster->image->src);   
+        }
         $monster->image->delete();
         $monster->delete();
         return redirect()->route('home');

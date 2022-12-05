@@ -15,12 +15,12 @@
                 <tr>
                     <td>
                       <div class="d-flex align-items-center">
-                        <img
-                            src="{{ asset('storage/'.$monster->image) }}"
+                        {{-- <img
+                            src="{{ asset('storage/'.$monster->image->src) }}"
                             alt=""
                             style="width: 45px; height: 45px"
                             class="rounded-circle"
-                            />
+                            /> --}}
                         <div class="ms-3">
                                <a href="/monster/{{ $monster->id }}" class="fw-bold mb-1"> {{ $monster->nom }}</a> 
                         </div>

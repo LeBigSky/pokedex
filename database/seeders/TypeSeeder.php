@@ -17,12 +17,28 @@ class TypeSeeder extends Seeder
     {
         DB::table('types')->insert([
             ['type'=> 'Electrique',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             ['type'=> 'Feu',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             ['type'=> 'Glace',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             ['type'=> 'Dinguerie',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            ['type'=> 'Vent',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            ['type'=> 'Combat',
+            'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
           
         ]);
