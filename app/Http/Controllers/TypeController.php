@@ -24,7 +24,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view ('pages.types.create');
     }
 
     /**
@@ -35,7 +35,10 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Type();
+        $store->type = $request->type;
+        $store->save();
+        return redirect('/');
     }
 
     /**

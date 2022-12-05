@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pokemon extends Model
+class Monster extends Model
 {
     use HasFactory;
+    public function type (){
+        return $this->hasOne(Type::class);
+    } 
 }
