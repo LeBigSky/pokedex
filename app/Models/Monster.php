@@ -9,6 +9,9 @@ class Monster extends Model
 {
     use HasFactory;
     public function type (){
-        return $this->hasOne(Type::class);
+        return $this->belongsTo(Type::class);
+    }
+    public function image (){
+        return $this->hasOne(Image::class);
     } 
 }

@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home (){
-        $pokemons= Monster::all();
+        $monsters= Monster::all();
         $images= Image::all();
         $types= Type::all();
 
-        return view ('home', compact('pokemons', 'images', 'types'));
+        return view ('home', compact('monsters', 'images', 'types'));
     }
 }
