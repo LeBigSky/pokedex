@@ -3,6 +3,19 @@
 
 // Variables
 @import 'variables';
-
+@import 'font';
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.nav{
+    font-family: Pokemon;
+    font-size: 30px;
+    height: 100px;
+    background: linear-gradient(45deg, rgb(73, 63, 255) 42%, rgb(206, 215, 222) 46%, rgb(144, 0, 255) 50%);
+    padding: 0;
+    margin: 0;
+}
+#title{
+    margin: auto;
+}
+    

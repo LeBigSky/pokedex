@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    @include('partials.nav')
     @yield('content')
 </body>
 </html>
