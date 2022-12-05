@@ -1,5 +1,6 @@
 <section>
     <div class="container">
+        <a href="{{ route('monster.create') }}" class="btn btn-primary text-white my-5">Creer un Pocket Monster</a>
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light">
               <tr>
@@ -20,7 +21,7 @@
                             class="rounded-circle"
                             />
                         <div class="ms-3">
-                               <a href="/monster/{{ $monster->image->id }}" class="fw-bold mb-1"> {{ $monster->nom }}</a> 
+                               <a href="/monster/{{ $monster->id }}" class="fw-bold mb-1"> {{ $monster->nom }}</a> 
                         </div>
                       </div>
                     </td>
