@@ -1,4 +1,5 @@
 <section>
+  @include('layouts.flash')
     <div class="container">
         <a href="{{ route('monster.create') }}" class="btn btn-primary text-white my-5">Creer un Pocket Monster</a>
         <a href="{{ route('type.create') }}" class="btn btn-warning text-white my-5">Creer un Type</a>

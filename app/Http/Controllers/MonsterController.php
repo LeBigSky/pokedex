@@ -39,6 +39,13 @@ class MonsterController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "nom" =>['required', 'min:3', 'max:10'],
+            "type_id" =>['required'],
+            "level" =>['required'],
+            "src" =>['required']
+        ]);
+
         $store = new Monster();
         $store->nom = $request->nom;
         $store->type_id = $request->type_id;
@@ -49,7 +56,7 @@ class MonsterController extends Controller
         Storage::put('public/', $request->file('src'));
         $image->monster_id = $store->id;
         $image->save();
-        return redirect('/');
+        return redirect('/')->with('success', 'Bravo jeune dresseur, ton nouveau pocket monster a été crée');
     }
 
     /**

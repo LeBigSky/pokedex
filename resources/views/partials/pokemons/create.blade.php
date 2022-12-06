@@ -1,5 +1,6 @@
 <section>
     <div class="container mt-5">
+      @include('layouts.flash')
         <h2>Creation de votre Poket Monster</h2>
         <form action="/monster" method="POST" enctype="multipart/form-data">
             @csrf
