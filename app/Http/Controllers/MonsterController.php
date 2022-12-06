@@ -91,12 +91,26 @@ class MonsterController extends Controller
      */
     public function update(Request $request, Monster $monster, Image $image )
     {
+ if($request->type_id != $monster->type->id){
+            $monster->type_id = $request->type_id;
+            $monster->nom = $request->nom;
+            $monster->level= $request->level;
+            $monster->save();
+        }
+        else{
+            $monster->nom = $request->nom;
+            $monster->type_id= $request->type_id;
+            $monster->level= $request->level;
+            $monster->save();
+        }
+
         $request->validate([
             "nom" =>['required', 'min:3', 'max:10'],
             "type_id" =>['required'],
             "level" =>['required'],
             
         ]);
+       
 
         if($request->src != null){
         $image= Image::find( $monster->id);
