@@ -76,7 +76,7 @@ class MonsterController extends Controller
      * @param  \App\Models\Monster  $monster
      * @return \Illuminate\Http\Response
      */
-    public function edit(Monster $monster)
+    public function edit(Monster $monster, Request $request)
     {
         $types= Type::all();
         return view('pages.pokemons.edit', compact('monster', 'types'));
@@ -91,6 +91,13 @@ class MonsterController extends Controller
      */
     public function update(Request $request, Monster $monster, Image $image )
     {
+        $request->validate([
+            "nom" =>['required', 'min:3', 'max:10'],
+            "type_id" =>['required'],
+            "level" =>['required'],
+            
+        ]);
+
         if($request->src != null){
         $image= Image::find( $monster->id);
         Storage::delete('public/'.$monster->image->src);
@@ -99,7 +106,7 @@ class MonsterController extends Controller
         
         }
         else{
-        $image->src = $image->src;    
+        $image->src = $monster->image->src;    
         }
         $image->monster_id = $monster->id;
         $image->save();
@@ -107,7 +114,7 @@ class MonsterController extends Controller
         $monster->type_id= $request->type_id;
         $monster->level= $request->level;
         $monster->save();
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', $monster->nom.' A bien été modifié');
     }
 
     /**
