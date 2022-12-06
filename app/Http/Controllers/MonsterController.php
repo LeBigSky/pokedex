@@ -40,7 +40,7 @@ class MonsterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "nom" =>['required', 'min:3', 'max:10'],
+            "nom" =>['required', 'min:3', 'max:15'],
             "type_id" =>['required'],
             "level" =>['required'],
             "src" =>['required']
@@ -93,6 +93,7 @@ class MonsterController extends Controller
     {
  if($request->type_id != $monster->type->id){
             $monster->type_id = $request->type_id;
+            $image->src = $monster->image->src; 
             $monster->nom = $request->nom;
             $monster->level= $request->level;
             $monster->save();
@@ -100,12 +101,13 @@ class MonsterController extends Controller
         else{
             $monster->nom = $request->nom;
             $monster->type_id= $request->type_id;
+            $image->src = $monster->image->src; 
             $monster->level= $request->level;
             $monster->save();
         }
 
         $request->validate([
-            "nom" =>['required', 'min:3', 'max:10'],
+            "nom" =>['required', 'min:3', 'max:15'],
             "type_id" =>['required'],
             "level" =>['required'],
             
@@ -114,7 +116,10 @@ class MonsterController extends Controller
 
         if($request->src != null){
         $image= Image::find( $monster->id);
-        Storage::delete('public/'.$monster->image->src);
+        if($monster->id > 4){
+          Storage::delete('public/'.$monster->image->src);  
+        }
+        
         $image->src = $request->file('src')->hashName();
         Storage::put('public/', $request->file('src'));
         
@@ -128,7 +133,7 @@ class MonsterController extends Controller
         $monster->type_id= $request->type_id;
         $monster->level= $request->level;
         $monster->save();
-        return redirect()->route('home')->with('success', $monster->nom.' A bien été modifié');
+        return redirect()->route('home')->with('success', $monster->nom.' a bien été modifié');
     }
 
     /**
